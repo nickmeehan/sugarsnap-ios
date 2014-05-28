@@ -22,6 +22,9 @@ CameraController.prototype = {
   },
   cameraSuccess: function(imageURI) {
   	alert(imageURI.toString())
+    var photo = document.createElement('img');
+    photo.setAttribute('src', imageURI);
+    document.getElementById('feed').insertBefore(photo, document.getElementById('feed').firstChild)
   },
   cameraError: function() {
   	navigator.notification.alert("You should head to the genius bar, something went wrong.", console.log(''))
