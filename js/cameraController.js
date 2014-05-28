@@ -20,8 +20,8 @@ CameraController.prototype = {
   	alert("cool beans")
   	navigator.camera.getPicture(this.cameraSuccess, this.cameraError, this.cameraOptions)
   },
-  cameraSuccess: function() {
-  	alert("SUCCESS!!")
+  cameraSuccess: function(imageURI) {
+  	alert(imageURI.toString())
   },
   cameraError: function() {
   	navigator.notification.alert("You should head to the genius bar, something went wrong.", console.log(''))
