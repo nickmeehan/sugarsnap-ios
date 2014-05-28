@@ -2,7 +2,7 @@ SugarSnap = {
 	initialize: function() {
 		alert("initialized")
 		new CameraController(new CameraView()).bindCameraListener()
-		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure, {timeout: 10000, enableHighAccuracy: false, maximumAge: 75000})		
+		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure.bind(this), {timeout: 10000, enableHighAccuracy: false, maximumAge: 75000})		
 	},
 	getCoordinatesSuccess: function(position) {
 		// start spinner here
@@ -19,6 +19,6 @@ SugarSnap = {
 	},
 	getCoordinatesFailure: function() {
 		alert("failed")
-		navigator.notification.alert("We're sorry we couldn't find you! We'll keep searching...", console.log("oh boy"))
+		navigator.notification.alert("We're sorry we couldn't find you! We'll keep searching...", this.initialize)
 	}
 }
