@@ -1,5 +1,6 @@
 SugarSnap = {
 	initialize: function() {
+		alert("initialized")
 		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure)		
 	},
 	getCoordinatesSuccess: function(position) {
