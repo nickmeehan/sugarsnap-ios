@@ -2,7 +2,7 @@ var FirebaseCommunicator = {
   getInitialPhotos: function(firebaseController, photoController) {
     firebaseController.geo.getPointsNearLoc([firebaseController.latitude, firebaseController.longitude], firebaseController.radius, function(photoArray) {
       photoController.initializeFeed(photoArray);
-      // photoController.initializeInfiniteScroll(photoArray);
+      photoController.initializeInfiniteScroll(photoArray);
     })
   },
   getLivePhotoUpdate: function(firebaseController, photoController) {
