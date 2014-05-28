@@ -2,7 +2,7 @@ function CameraController(view) {
   this.view = view;
   this.cameraOptions = {
   	quality: 49,
-  	destinationType: Camera.DestinationType.FILE_URI,
+  	destinationType: Camera.DestinationType.DATA_URL,
   	encodingType: Camera.EncodingType.PNG,
   	targetWidth: 320,
   	targetHeight: 320
@@ -20,10 +20,10 @@ CameraController.prototype = {
   	alert("cool beans")
   	navigator.camera.getPicture(this.cameraSuccess, this.cameraError, this.cameraOptions)
   },
-  cameraSuccess: function(imageURI) {
-  	alert(imageURI.toString())
+  cameraSuccess: function(imageData) {
+  	alert(imageData.toString())
     var photo = document.createElement('img');
-    photo.setAttribute('src', imageURI);
+    photo.setAttribute('src', "data:image/png;base64," + imageData);
     document.getElementById('feed').insertBefore(photo, document.getElementById('feed').firstChild)
   },
   cameraError: function() {
