@@ -1,0 +1,393 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+/*h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}*/
+
+
+.hidden {
+ display: none;
+}
+
+body {
+ background: url("http://subtlepatterns.com/patterns/sativa.png") repeat;
+}
+
+h1 {
+ font-family: 'Miltonian Tattoo', cursive;
+ font-size: 40px;
+ margin-top: 0px;
+ margin-bottom: 0px;
+ padding: 0px;
+}
+
+header {
+ margin-top: 20px;
+ padding: none;
+ position: fixed;
+ top: 0px;
+ left: 0px;
+ width: 100%;
+ display: block;
+ clear: both;
+}
+
+#header {
+ background: #85e085;
+ height: 50px;
+ padding: none;
+ padding-bottom: 5px;
+ top: 0px;
+ left: 0px;
+ width: 100%;
+ display: block;
+ text-align: center;
+}
+
+p {
+ text-align: center;
+ /*font-family: 'Miltonian Tattoo', cursive;*/
+ margin: none;
+ text-align: center;
+ padding: none;
+ font-size: 14px;
+}
+@media (min-width: 411px) {
+ p {
+   font-size: 14.3px;
+   max-width: 500px;
+   margin-right: auto;
+   margin-left: auto;
+   padding-top: 5px;
+ }
+}
+@media (min-width: 887px) {
+ p {
+   padding-top: 6px;
+   font-size: 15px;
+   max-width: 500px;
+   margin-right: auto;
+   margin-left: auto;
+ }
+}
+
+img {
+ height: 320px;
+ width: 320px;
+ text-align: center;
+ margin: 5px 0px;
+}
+@media (min-width: 450px) {
+ img {
+   margin: 25px;
+ }
+}
+
+#subheader {
+ margin: none;
+ margin-top: -16px;
+ padding: none;
+ background: #C8FFC8;
+ width: 100%;
+ height: 50px;
+ display: none;
+}
+
+.feed-container {
+ text-align: center;
+ margin-top: 55px;
+ margin-bottom: 30px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.form-container {
+ text-align: center;
+ height: 100px;
+ width: 100%;
+ margin-left: auto;
+ margin-right: auto;
+ position: relative;
+ max-width: 1000px;
+}
+
+.feed {
+ text-align: center;
+ margin-left: auto;
+ margin-right: auto;
+ max-width: 1000px;
+}
+
+footer {
+ padding-bottom: 75px;
+ position: fixed;
+ left: 0px;
+ bottom: 0px;
+ height: 50px;
+ width: 100%;
+ background: #85e085;
+ margin: 0;
+ padding: 0;
+ text-align: center;
+}
+@media (min-width: 981px) {
+ footer {
+   height: 66px;
+ }
+}
+
+input[type="file"] {
+ height: 80px;
+ width: 46px;
+ opacity: 0;
+ position: absolute;
+ z-index: 1;
+ bottom: 0px;
+ left: 140px;
+ top: 0px;
+}
+@media (min-width: 450px) {
+ input[type="file"] {
+   left: 208px;
+ }
+}
+@media (min-width: 600px) {
+ input[type="file"] {
+   left: 302px;
+ }
+}
+@media (min-width: 755px) {
+ input[type="file"] {
+   left: 47.8%;
+ }
+}
+@media (min-width: 981px) {
+ input[type="file"] {
+   height: 100px;
+   width: 100px;
+   left: 47.7%;
+ }
+}
+
+#camera-icon {
+ width: 42px;
+ height: 42px;
+ border: solid 2px black;
+ border-radius: 10px;
+ position: absolute;
+ z-index: 0;
+ top: 0px;
+ left: 140px;
+ margin-bottom: 3px;
+ margin-top: 3px;
+}
+@media (min-width: 450px) {
+ #camera-icon {
+   bottom: 0px;
+   left: 184px;
+   top: 0px;
+ }
+}
+@media (min-width: 600px) {
+ #camera-icon {
+   left: 278px;
+ }
+}
+@media (min-width: 755px) {
+ #camera-icon {
+   left: 45%;
+ }
+}
+@media (min-width: 981px) {
+ #camera-icon {
+   width: 55px;
+   height: 55px;
+   border-radius: 17px;
+   left: 45%;
+ }
+}
+
+#submit_photo {
+ display: none;
+ opacity: 0;
+ height: 46px;
+ width: 48px;
+ position: absolute;
+ z-index: 1;
+ bottom: 52px;
+ left: 89px;
+ margin: 0px;
+ padding: 0px;
+}
+@media (min-width: 450px) {
+ #submit_photo {
+   left: 155px;
+ }
+}
+@media (min-width: 600px) {
+ #submit_photo {
+   left: 249px;
+ }
+}
+@media (min-width: 755px) {
+ #submit_photo {
+   left: 41%;
+ }
+}
+@media (min-width: 981px) {
+ #submit_photo {
+   left: 40.25%;
+   width: 62px;
+   height: 75px;
+   top: 1px;
+ }
+}
+
+#cloud_icon {
+ display: none;
+ width: 36px;
+ height: 36px;
+ border: solid 2px black;
+ border-radius: 10px;
+ position: absolute;
+ padding: 3px;
+ z-index: 0;
+ top: 0px;
+ left: 92px;
+ margin-bottom: 3px;
+ margin-top: 3px;
+}
+@media (min-width: 450px) {
+ #cloud_icon {
+   left: 132px;
+ }
+}
+@media (min-width: 600px) {
+ #cloud_icon {
+   left: 226px;
+ }
+}
+@media (min-width: 755px) {
+ #cloud_icon {
+   left: 38%;
+ }
+}
+@media (min-width: 981px) {
+ #cloud_icon {
+   left: 38%;
+   width: 39px;
+   height: 39px;
+   padding: 8px;
+   border-radius: 17px;
+ }
+}
