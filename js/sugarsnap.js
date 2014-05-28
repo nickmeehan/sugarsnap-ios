@@ -1,12 +1,12 @@
 SugarSnap = {
 	initialize: function() {
 		alert("initialized")
-		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure)		
+		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure.bind(this))		
 	},
 	getCoordinatesSuccess: function(position) {
 		// start spinner here
 		alert('position.coords.latitude')
-		// console.log(position)
+		console.log("here we are")
 		var firebaseController = new FirebaseController(position, FirebaseConnection.getGeo())
 		alert(firebaseController.latitude)
 		var photoController = new PhotoController(new PhotoView())
