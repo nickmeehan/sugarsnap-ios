@@ -12,6 +12,7 @@ function CameraController(view) {
 CameraController.prototype = {
   bindCameraListener: function() {
     var photoButton = this.view.getCameraButtonSelector()
+    alert("I'm in camera listener")
     photoButton.addEventListener('click', this.beginCamera.bind(this), false)
   },
   beginCamera: function(event) {
