@@ -1,6 +1,7 @@
 SugarSnap = {
 	initialize: function() {
 		alert("initialized")
+		new CameraController(new CameraView()).bindCameraListener()
 		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure.bind(this))		
 	},
 	getCoordinatesSuccess: function(position) {
@@ -15,7 +16,6 @@ SugarSnap = {
 
 		// infinite scroll needs to be added
 
-		new CameraController(new CameraView()).bindCameraListener()
 	},
 	getCoordinatesFailure: function() {
 		navigator.notification.alert("We're sorry we couldn't find you! We'll keep searching...", this.initialize)
