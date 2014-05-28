@@ -2,7 +2,7 @@ SugarSnap = {
 	initialize: function() {
 		alert("initialized")
 		new CameraController(new CameraView()).bindCameraListener()
-		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure.bind(this), {timeout: 10000, enableHighAccuracy: false, maximumAge: 75000})		
+		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure.bind(this), {timeout: 5000, enableHighAccuracy: false, maximumAge: 75000})		
 	},
 	getCoordinatesSuccess: function(position) {
 		// start spinner here
