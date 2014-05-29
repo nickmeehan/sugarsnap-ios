@@ -2,7 +2,7 @@ function CameraController(view) {
   this.view = view;
   this.cameraOptions = {
   	quality: 49,
-  	destinationType: Camera.DestinationType.DATA_URL,
+  	destinationType: Camera.DestinationType.FILE_URI,
   	encodingType: Camera.EncodingType.PNG,
   	targetWidth: 320,
   	targetHeight: 320
@@ -17,14 +17,14 @@ CameraController.prototype = {
   },
   beginCamera: function(event) {
   	event.preventDefault();
-  	alert("cool beans")
   	navigator.camera.getPicture(this.cameraSuccess, this.cameraError, this.cameraOptions)
   },
-  cameraSuccess: function(imageData) {
-  	alert(imageData.toString())
-    var photo = document.createElement('img');
-    photo.setAttribute('src', "data:image/png;base64," + imageData);
-    document.getElementById('feed').insertBefore(photo, document.getElementById('feed').firstChild)
+  cameraSuccess: function(imageURI) {
+  	alert(imageURI.toString())
+    filepicker.store(imageURI, function(inkBlob) {
+      alert(inkBlob.url)
+    })
+    
   },
   cameraError: function() {
   	navigator.notification.alert("You should head to the genius bar, something went wrong.", console.log(''))
