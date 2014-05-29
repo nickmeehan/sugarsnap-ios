@@ -21,9 +21,9 @@ CameraController.prototype = {
   },
   cameraSuccess: function(imageURI) {
   	alert(imageURI.toString())
-    filepicker.store(imageURI, function(inkBlob) {
-      alert(inkBlob.url)
-    })
+    // filepicker.store(imageURI, function(inkBlob) {
+    //   alert(inkBlob.url)
+    // })
     
   },
   cameraError: function() {

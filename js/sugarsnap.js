@@ -3,7 +3,7 @@ SugarSnap = {
 		navigator.geolocation.getCurrentPosition(this.getCoordinatesSuccess, this.getCoordinatesFailure.bind(this))
 	},
 	getCoordinatesSuccess: function(position) {
-		filepicker.setKey('')
+		// filepicker.setKey('')
 		var firebaseController = new FirebaseController(position, FirebaseConnection.getGeo())
 		var photoController = new PhotoController(new PhotoView())
 		firebaseController.subscribeListenerForInitialPhotos(photoController)
