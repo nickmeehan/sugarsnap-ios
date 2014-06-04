@@ -2,7 +2,7 @@ function CameraController(view) {
   this.view = view;
   this.cameraOptions = {
   	quality: 49,
-  	destinationType: Camera.DestinationType.FILE_URI,
+  	destinationType: Camera.DestinationType.FILE__URI,
   	encodingType: Camera.EncodingType.PNG,
   	targetWidth: 320,
   	targetHeight: 320
@@ -12,7 +12,6 @@ function CameraController(view) {
 CameraController.prototype = {
   bindCameraListener: function() {
     var photoButton = this.view.getCameraButtonSelector()
-    alert("I'm in camera listener")
     photoButton.addEventListener('click', this.beginCamera.bind(this), false)
   },
   beginCamera: function(event) {
@@ -20,34 +19,21 @@ CameraController.prototype = {
   	navigator.camera.getPicture(this.cameraSuccess, this.cameraError, this.cameraOptions)
   },
   cameraSuccess: function(imageURI) {
-  	alert(imageURI.toString())
-    // filepicker.store(imageURI, function(inkBlob) {
-    //   alert(inkBlob.url)
-    // })
-    
+    // alert(imageURI.toString())
+    // filepicker.setKey('AKLyleYaOTvmXB21gue4Dz');
+    // var userImage = 
+    // filepicker.store(
+    //   imageURI,
+    //   { mimetype: 'image/png', location: 'S3', access: 'public' }, 
+    //   function(inkBlob) {
+    //     alert(inkBlob.url)
+    //   }, function(error) {
+    //     alert('shit is fucked')
+    //   }, function(progress) {alert('progress')});
+    alert("We're still working on getting images to upload. We'll let you know as soon as we can about getting photos uploaded!")
   },
   cameraError: function() {
   	navigator.notification.alert("You should head to the genius bar, something went wrong.", console.log(''))
-  },
-  sendPhotoToServer: function(event) {
-  //   event.preventDefault();
-  //   var token = TokenScraper.token();
-  //   var formData = FormDataPreparer.prepare(event)
-  //   SpinnerModule.renderSpinnerAnimation();
-  //   var xhr = new XMLHttpRequest()
-  //   xhr.open(event.target.method, event.target.action, true);
-  //   xhr.setRequestHeader("X-CSRF-Token", token);
-  //   xhr.onload = function(response) {
-  //     if (xhr.status === 200) {
-  //       var url = JSON.parse(response.target.responseText)
-  //       FirebaseCommunicator.sendImageToFirebase(url["url"])
-  //     } else if (xhr.status === 422 || xhr.status === 500){
-  //       SpinnerModule.removeSpinnerAnimation()
-  //       var errorHolder = JSON.parse(response.target.responseText)
-  //       alert(errorHolder["errors"])
-  //     }
-  //   };
-  //   xhr.send(formData);
   }
 }
 
