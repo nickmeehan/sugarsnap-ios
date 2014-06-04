@@ -20,7 +20,7 @@ CameraController.prototype = {
   },
   cameraSuccess: function(imageURI) {
     // alert(imageURI.toString())
-    // filepicker.setKey('AKLyleYaOTvmXB21gue4Dz');
+    // filepicker.setKey('');
     // var userImage = 
     // filepicker.store(
     //   imageURI,
